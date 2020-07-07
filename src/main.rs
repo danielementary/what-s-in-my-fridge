@@ -1,8 +1,6 @@
-struct Date {
-    day: u8,
-    month: u8,
-    year: u8,
-}
+use chrono::NaiveDate;
+
+type Date = NaiveDate;
 
 struct Item {
     name: String,
@@ -16,5 +14,7 @@ struct List {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let dt = Date::from_ymd(2020, 12, 1);
+    let dt = dt.format("%A %d %B").to_string();
+    println!("Date: {}", dt);
 }
